@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La'Vero Café & Restaurant | Luxury Dining in DHA Multan</title>
+    <meta name="description" content="Welcome to La'Vero Café & Restaurant - South Punjab's First Baked Meat Restaurant located in DHA Multan. Experience premium luxury dining.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxuryBlack: '#0A0A0A',
+                        luxuryCard: 'rgba(23, 23, 23, 0.7)',
+                        luxuryGold: '#D4AF37',
+                        luxuryAccent: '#F4C542',
+                        textGray: '#B3B3B3',
+                    },
+                    fontFamily: {
+                        playfair: ['Playfair Display', 'serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #F4C542 100%)',
+                        'dark-gradient': 'linear-gradient(to bottom, rgba(10,10,10,0.8), #0A0A0A)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glassmorphism {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+        }
+        .glassmorphism:hover {
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-luxuryBlack text-white font-poppins overflow-x-hidden relative" x-data="{ mobileMenuOpen: false }">
+
+    <div class="absolute top-[10%] left-[-10%] w-[400px] h-[400px] bg-luxuryGold/5 rounded-full blur-[120px] pointer-events-none hidden md:block"></div>
+    <div class="absolute top-[50%] right-[-10%] w-[500px] h-[500px] bg-luxuryAccent/5 rounded-full blur-[150px] pointer-events-none hidden md:block"></div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-luxuryBlack/80"
+         :class="{ 'py-3 bg-luxuryBlack/95 shadow-xl': window.scrollY > 50, 'py-5': window.scrollY <= 50 }">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="font-playfair text-2xl font-bold tracking-widest text-white">
+                LA'VERO<span class="text-luxuryGold">.</span>
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#" class="hover:text-luxuryGold transition-colors duration-300 text-luxuryGold">Home</a>
+                <a href="#about" class="hover:text-luxuryGold transition-colors duration-300 text-textGray">Our Story</a>
+                <a href="#menu" class="hover:text-luxuryGold transition-colors duration-300 text-textGray">Signature Menu</a>
+                <a href="#why-us" class="hover:text-luxuryGold transition-colors duration-300 text-textGray">Amenities</a>
+                <a href="#gallery" class="hover:text-luxuryGold transition-colors duration-300 text-textGray">Gallery</a>
+                <a href="#contact" class="hover:text-luxuryGold transition-colors duration-300 text-textGray">Contact</a>
+            </div>
+
+            <div class="hidden lg:block">
+                <a href="#contact" class="px-6 py-2.5 rounded-full border border-luxuryGold text-luxuryGold text-xs font-semibold uppercase tracking-widest hover:bg-gold-gradient hover:text-black transition-all duration-500 shadow-lg shadow-luxuryGold/10">
+                    Reserve Table
+                </a>
+            </div>
+
+            <button class="lg:hidden text-white focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen">
+                <i class="fa-solid fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenuOpen"></i>
+            </button>
+        </div>
+
+        <div class="lg:hidden w-full absolute top-full left-0 bg-luxuryBlack/95 border-b border-white/5 backdrop-blur-lg px-6 py-6 space-y-4"
+             x-show="mobileMenuOpen" x-transition>
+            <a href="#" @click="mobileMenuOpen = false" class="block text-sm uppercase tracking-wider text-luxuryGold">Home</a>
+            <a href="#about" @click="mobileMenuOpen = false" class="block text-sm uppercase tracking-wider text-textGray hover:text-luxuryGold">Our Story</a>
+            <a href="#menu" @click="mobileMenuOpen = false" class="block text-sm uppercase tracking-wider text-textGray hover:text-luxuryGold">Signature Menu</a>
+            <a href="#why-us" @click="mobileMenuOpen = false" class="block text-sm uppercase tracking-wider text-textGray hover:text-luxuryGold">Amenities</a>
+            <a href="#gallery" @click="mobileMenuOpen = false" class="block text-sm uppercase tracking-wider text-textGray hover:text-luxuryGold">Gallery</a>
+            <a href="#contact" @click="mobileMenuOpen = false" class="block text-sm uppercase tracking-wider text-textGray hover:text-luxuryGold">Contact</a>
+            <a href="#contact" @click="mobileMenuOpen = false" class="inline-block w-full text-center py-3 bg-gold-gradient text-black rounded-lg text-sm font-bold uppercase tracking-wider">Reserve Table</a>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1920" alt="Luxury Steak" class="w-full h-full object-cover opacity-35 scale-105 transition-transform duration-10000 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent to-luxuryBlack/70"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1200">
+            <span class="text-luxuryGold uppercase tracking-[0.4em] text-xs md:text-sm inline-block mb-4 font-semibold">Exquisite Culinary Art</span>
+            <h1 class="font-playfair text-5xl md:text-8xl font-bold tracking-tight mb-6 text-white drop-shadow-2xl">
+                La'Vero <span class="block md:inline font-playfair italic font-normal text-luxuryGold">Café & Restaurant</span>
+            </h1>
+            <p class="text-textGray font-light tracking-wide text-lg md:text-2xl max-w-2xl mx-auto mb-10 border-y border-white/10 py-3">
+                South Punjab's First Baked Meat Restaurant
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-gradient text-black font-semibold text-sm uppercase tracking-widest hover:scale-105 hover:shadow-xl hover:shadow-luxuryGold/20 transition-all duration-300">
+                    Explore Menu
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border-2 border-white/20 text-white font-semibold text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                    Reserve Table
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-10 z-10 hidden lg:flex flex-col space-y-4 text-sm text-textGray">
+            <a href="#" class="hover:text-luxuryGold transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+            <a href="#" class="hover:text-luxuryGold transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+            <a href="#" class="hover:text-luxuryGold transition-colors"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            <div class="w-[1px] h-12 bg-white/20 mx-auto"></div>
+        </div>
+
+        <div class="absolute bottom-10 right-1/2 translate-x-1/2 z-10 flex flex-col items-center">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-textGray mb-2 font-light">Scroll Down</span>
+            <div class="w-[20px] h-[35px] border-2 border-white/30 rounded-full flex justify-center p-[2px]">
+                <div class="w-[4px] h-[8px] bg-luxuryGold rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative" data-aos="fade-right" data-aos-duration="1000">
+            <div class="border border-luxuryGold/20 p-3 rounded-2xl">
+                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&q=80&w=800" alt="Chef preparing luxury meat" class="rounded-xl w-full object-cover h-[500px]">
+            </div>
+            <div class="absolute bottom-6 -right-4 glassmorphism p-6 rounded-xl shadow-2xl max-w-[200px] hidden sm:block">
+                <i class="fa-solid fa-award text-luxuryGold text-3xl mb-2"></i>
+                <p class="text-white font-semibold text-sm">Premium Fine Dining Standard</p>
+            </div>
+        </div>
+
+        <div class="space-y-6" data-aos="fade-left" data-aos-duration="1000">
+            <span class="text-luxuryGold uppercase tracking-widest text-xs font-semibold">Discover Our Journey</span>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold leading-tight">Crafting Gastronomic <br><span class="italic font-normal text-luxuryGold">Masterpieces</span> in Multan</h2>
+            <p class="text-textGray leading-relaxed font-light">
+                La'Vero Cafe & Restaurant redefines premium hospitality in South Punjab. Pioneering the absolute art of slow-baked premium cuts, we blend traditional techniques with contemporary elegance. Located uniquely in DHA Multan, we welcome you to experience culinary prestige.
+            </p>
+            <p class="text-textGray leading-relaxed font-light">
+                Every dish is a canvas of perfection curated by expert culinary architects, dedicated to bringing your palate unparalleled luxury flavors.
+            </p>
+
+            <hr class="border-white/10 my-8">
+
+            <div class="grid grid-cols-3 gap-4 text-center sm:text-left">
+                <div>
+                    <h3 class="font-playfair text-3xl md:text-4xl font-bold text-luxuryGold font-mono">15K+</h3>
+                    <p class="text-xs uppercase tracking-wider text-textGray mt-1">Happy Customers</p>
+                </div>
+                <div>
+                    <h3 class="font-playfair text-3xl md:text-4xl font-bold text-luxuryGold font-mono">24+</h3>
+                    <p class="text-xs uppercase tracking-wider text-textGray mt-1">Signature Dishes</p>
+                </div>
+                <div>
+                    <h3 class="font-playfair text-3xl md:text-4xl font-bold text-luxuryGold font-mono">05+</h3>
+                    <p class="text-xs uppercase tracking-wider text-textGray mt-1">Years Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-[#0F0F0F] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-luxuryGold uppercase tracking-widest text-xs font-semibold">Selected Masterpieces</span>
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold mt-2">Our Signature Menu</h2>
+                <div class="w-24 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" alt="Baked Meat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Signature Baked Meat</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">Slow-cooked prime rib joints perfectly baked overnight with our secret rub.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&q=80&w=600" alt="Steaks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Premium Wagyu Steaks</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">Perfect marbling level 9 cuts grilled to your preferred absolute temperature finish.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=600" alt="BBQ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Royal Flame BBQ Platter</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">An opulent blend of open pit skewered specialty kebabs and traditional chops.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600" alt="Burgers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">La'Vero Gold Burger</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">Artisan smashed double aged black angus patty topped with gourmet truffles.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=600" alt="Pasta" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Truffle Fettuccine Pasta</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">Handmade fresh egg yolk sheet pasta tossed inside authentic parmesan wheels.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=600" alt="Pizza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Gourmet Neapolitan Pizza</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">San Marzano tomatoes, fresh pulled buffalo mozzarella, blistered crust woodfired perfection.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=600" alt="Desserts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Molten Gold Sphere</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">Luxurious dark chocolate shell cracked open with piping hot salted caramel standard.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+                <div class="glassmorphism rounded-2xl overflow-hidden group transition-all duration-500" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600" alt="Coffee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-white mb-2">Artisan Reserve Coffee</h3>
+                        <p class="text-textGray text-xs font-light mb-4 line-clamp-2">Single origin arabica micro-lot pour-overs roasted to signature gold standards.</p>
+                        <button class="w-full py-2.5 rounded-xl border border-white/10 text-xs font-medium uppercase tracking-wider group-hover:bg-gold-gradient group-hover:text-black transition-all duration-300">View Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-luxuryGold uppercase tracking-widest text-xs font-semibold">The La'Vero Experience</span>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mt-2">Why Dine With Us</h2>
+            <div class="w-24 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glassmorphism p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 flex items-center justify-center text-luxuryGold text-xl mb-6">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-bold mb-3">Premium Ingredients</h3>
+                <p class="text-textGray text-sm font-light leading-relaxed">Exclusively imported premium beef cuts, organic field-fresh farm vegetables, and original select spices.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 flex items-center justify-center text-luxuryGold text-xl mb-6">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-bold mb-3">Expert Culinary Chefs</h3>
+                <p class="text-textGray text-sm font-light leading-relaxed">Masterful kitchen handling from veteran head culinary masters recognized nationwide.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 flex items-center justify-center text-luxuryGold text-xl mb-6">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-bold mb-3">Fine Dining Experience</h3>
+                <p class="text-textGray text-sm font-light leading-relaxed">Silverware settings, personalized table hosts, and precise presentation values at every tier.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 flex items-center justify-center text-luxuryGold text-xl mb-6">
+                    <i class="fa-solid fa-people-roof"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-bold mb-3">Family Friendly</h3>
+                <p class="text-textGray text-sm font-light leading-relaxed">Sophisticated yet warmly welcoming spatial dynamics custom curated for corporate & private family hosting.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 flex items-center justify-center text-luxuryGold text-xl mb-6">
+                    <i class="fa-solid fa-couch"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-bold mb-3">Elegant Ambience</h3>
+                <p class="text-textGray text-sm font-light leading-relaxed">Premium dark architectural accents, tailored bespoke spatial design, and cinematic moody mood lighting configurations.</p>
+            </div>
+            <div class="glassmorphism p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 rounded-xl bg-luxuryGold/10 flex items-center justify-center text-luxuryGold text-xl mb-6">
+                    <i class="fa-solid fa-fire-burner"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-bold mb-3">Freshly Prepared Meals</h3>
+                <p class="text-textGray text-sm font-light leading-relaxed">Zero prefabricated bases. Handcrafted individual orders custom fired down on immediate call constraints.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-[#0F0F0F]" x-data="{ lightbox: false, imgsrc: '' }">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-luxuryGold uppercase tracking-widest text-xs font-semibold">Visual Brilliance</span>
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold mt-2">Inside La'Vero</h2>
+                <div class="w-24 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+            </div>
+
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                <div class="break-inside-avoid overflow-hidden rounded-xl relative group cursor-pointer border border-white/5" 
+                     @click="lightbox = true; imgsrc = 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800'">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800" alt="Restaurant Interior" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                        <i class="fa-solid fa-magnifying-glass-plus text-luxuryGold text-3xl"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid overflow-hidden rounded-xl relative group cursor-pointer border border-white/5"
+                     @click="lightbox = true; imgsrc = 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=800'">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=800" alt="Dining Table Setup" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                        <i class="fa-solid fa-magnifying-glass-plus text-luxuryGold text-3xl"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid overflow-hidden rounded-xl relative group cursor-pointer border border-white/5"
+                     @click="lightbox = true; imgsrc = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800'">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800" alt="Plated Dish Fine Art" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                        <i class="fa-solid fa-magnifying-glass-plus text-luxuryGold text-3xl"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid overflow-hidden rounded-xl relative group cursor-pointer border border-white/5"
+                     @click="lightbox = true; imgsrc = 'https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&q=80&w=800'">
+                    <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&q=80&w=800" alt="Chef plating" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                        <i class="fa-solid fa-magnifying-glass-plus text-luxuryGold text-3xl"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid overflow-hidden rounded-xl relative group cursor-pointer border border-white/5"
+                     @click="lightbox = true; imgsrc = 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=800'">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=800" alt="Gourmet presentation" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                        <i class="fa-solid fa-magnifying-glass-plus text-luxuryGold text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-md" x-show="lightbox" x-transition @click="lightbox = false" style="display: none;">
+                <button class="absolute top-6 right-6 text-white text-3xl hover:text-luxuryGold"><i class="fa-solid fa-xmark"></i></button>
+                <img :src="imgsrc" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl border border-white/10">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 max-w-7xl mx-auto px-6" x-data="{ activeTab: 1 }">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-luxuryGold uppercase tracking-widest text-xs font-semibold">Guest Opinions</span>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mt-2">Elite Testimonials</h2>
+            <div class="w-24 h-[1px] bg-luxuryGold mx-auto mt-4"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-center relative min-h-[250px]">
+            <div x-show="activeTab === 1" x-transition class="space-y-6">
+                <div class="flex justify-center space-x-1 text-luxuryGold text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="font-playfair text-xl md:text-2xl italic font-light text-white leading-relaxed">
+                    "The signature slow-baked ribs are absolute magic. The meat literally fell straight off the bone clean. Easily the premier true fine luxury steakhouse aesthetic across South Punjab right now."
+                </p>
+                <div class="flex items-center justify-center space-x-3 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-luxuryGold font-bold text-xs border border-luxuryGold/30">HN</div>
+                    <div class="text-left">
+                        <h4 class="text-sm font-semibold text-white tracking-wide">Haider Nawaz</h4>
+                        <p class="text-[11px] text-textGray uppercase tracking-wider">Verified VIP Guest</p>
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="activeTab === 2" x-transition class="space-y-6" style="display: none;">
+                <div class="flex justify-center space-x-1 text-luxuryGold text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="font-playfair text-xl md:text-2xl italic font-light text-white leading-relaxed">
+                    "The ambience inside DHA Multan matches elite global standards. Exceptional high-tier table hosting presentation and outstanding artisan coffee profile finishes. Highly recommended."
+                </p>
+                <div class="flex items-center justify-center space-x-3 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-luxuryGold font-bold text-xs border border-luxuryGold/30">MN</div>
+                    <div class="text-left">
+                        <h4 class="text-sm font-semibold text-white tracking-wide">Mahnoor</h4>
+                        <p class="text-[11px] text-textGray uppercase tracking-wider">Premium Connoisseur</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-3 mt-12">
+                <button @click="activeTab = 1" class="w-2.5 h-2.5 rounded-full transition-all duration-300" :class="activeTab === 1 ? 'bg-luxuryGold w-6' : 'bg-white/20'"></button>
+                <button @click="activeTab = 2" class="w-2.5 h-2.5 rounded-full transition-all duration-300" :class="activeTab === 2 ? 'bg-luxuryGold w-6' : 'bg-white/20'"></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-[#0F0F0F] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div class="space-y-8" data-aos="fade-right">
+                <div>
+                    <span class="text-luxuryGold uppercase tracking-widest text-xs font-semibold">Reservations</span>
+                    <h2 class="font-playfair text-4xl font-bold mt-1">Timings & Location</h2>
+                </div>
+
+                <div class="glassmorphism p-8 rounded-2xl flex items-center space-x-6 relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 text-white/5 text-8xl"><i class="fa-regular fa-clock"></i></div>
+                    <div class="text-luxuryGold text-3xl"><i class="fa-solid fa-clock-rotate-left animate-pulse"></i></div>
+                    <div class="grid grid-cols-2 gap-6 w-full z-10">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-textGray font-semibold">Mon – Thu</h4>
+                            <p class="text-lg font-playfair font-bold text-white mt-1">3 PM – 1 AM</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-textGray font-semibold">Fri – Sun</h4>
+                            <p class="text-lg font-playfair font-bold text-white mt-1">2 PM – 1 AM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glassmorphism p-8 rounded-2xl space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-luxuryGold text-xl mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-textGray">Address Location</h4>
+                            <p class="text-white font-medium mt-1">DHA Multan, Punjab, Pakistan.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <a href="https://wa.me/#" target="_blank" class="flex items-center justify-center space-x-2 py-3 bg-emerald-600/10 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/20 rounded-xl transition-all duration-300 text-xs uppercase tracking-widest font-semibold">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> <span>WhatsApp</span>
+                        </a>
+                        <a href="tel:#" class="flex items-center justify-center space-x-2 py-3 bg-luxuryGold/10 hover:bg-gold-gradient text-luxuryGold hover:text-black border border-luxuryGold/20 rounded-xl transition-all duration-300 text-xs uppercase tracking-widest font-semibold">
+                            <i class="fa-solid fa-phone text-sm"></i> <span>Call Now</span>
+                        </a>
+                        <a href="#" target="_blank" class="flex items-center justify-center space-x-2 py-3 bg-pink-600/10 hover:bg-pink-600 text-pink-400 hover:text-white border border-pink-500/20 rounded-xl transition-all duration-300 text-xs uppercase tracking-widest font-semibold">
+                            <i class="fa-brands fa-instagram text-sm"></i> <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full h-full min-h-[350px] rounded-2xl overflow-hidden border border-white/10 relative group" data-aos="fade-left">
+                <div class="absolute inset-0 bg-neutral-900/60 mix-blend-color-custom pointer-events-none group-hover:opacity-20 transition-opacity duration-500 z-10"></div>
+                <iframe 
+                    class="w-full h-full grayscale invert opacity-80" 
+                    src="https://maps.google.com/maps?q=DHA%20Multan&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-12 bg-luxuryBlack">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <a href="#" class="font-playfair text-2xl font-bold tracking-widest text-white">
+                    LA'VERO<span class="text-luxuryGold">.</span>
+                </a>
+                <p class="text-[11px] tracking-widest text-textGray uppercase mt-2">South Punjab's First Baked Meat Luxury Haven</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest font-medium text-textGray">
+                <a href="#" class="hover:text-luxuryGold transition-colors">Home</a>
+                <a href="#about" class="hover:text-luxuryGold transition-colors">Story</a>
+                <a href="#menu" class="hover:text-luxuryGold transition-colors">Menu</a>
+                <a href="#gallery" class="hover:text-luxuryGold transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-luxuryGold transition-colors">Contact</a>
+            </div>
+
+            <div class="text-center md:text-right text-xs text-textGray/60 font-light">
+                <p>&copy; 2026 La'Vero Café & Restaurant. All Rights Reserved.</p>
+                <p class="text-[10px] text-textGray/30 mt-1">Designed for Premium Luxury Status.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html>
